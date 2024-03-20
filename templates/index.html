@@ -139,35 +139,20 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="latest_post">
-          <h2><span>Latest post</span></h2>
+          {% for i in latestpost %}
+          <h2><span>{{ i.category }}</span></h2>
+          {% endfor %}
           <div class="latest_post_container">
             <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
             <ul class="latest_postnav">
+              {% for x in latestpost.news.all %}
               <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="{{ x.image.url }}"> </a>
+                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title">{{ x.description }}</a></div>
                 </div>
               </li>
-              <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
+              {% endfor %}
+
             </ul>
             <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
           </div>
@@ -180,41 +165,32 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>Business</span></h2>
+            {% for i in bisness %}
+            <h2><span>{{ i.category }}</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
                 <li>
-                  <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img1.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="pages/single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                  <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="{{ i.image.url }}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="pages/single_page.html">{{ i.title }}</a> </figcaption>
+                    <p>{{ i.desciption }}</p>
                   </figure>
                 </li>
+                {% endfor %}
               </ul>
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
+                {% for x in bisness.news.all %}
                 <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="{{ x.image.url }}"> </a>
+                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title">{{ x.title }}</a> </div>
                   </div>
                 </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                  </div>
-                </li>
+                {% endfor %}
+
               </ul>
             </div>
+
           </div>
           <div class="fashion_technology_area">
             <div class="fashion">
@@ -293,7 +269,7 @@
             <ul class="photograph_nav  wow fadeInDown">
               <li>
                 <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 1"> <img src="images/photograph_img2.jpg" alt=""/></a> </figure>
+                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg" title="Photography Ttile 1"> <img src="{% static 'images/photograph_img2.jpg' %}" alt=""/></a> </figure>
                 </div>
               </li>
               <li>

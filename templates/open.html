@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Modern Login Page | AsmrProg</title>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="{% url 'user_create_url' %}" method="post">
+                {% csrf_token %}
+                <h1>Yangi accaunt yaratish</h1>
+                <span>Ro'yhattan o'tish uchun quyidagilarni to'ldring </span>
+                <input type="text" name="username" placeholder="Foydalanuvchi nomi">
+                <input type="password" name="password" placeholder="........">
+                <button>Royhattan o'tish</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="{% url 'open_url' %}" method="post">
+                {% csrf_token %}
+                <h1>Tizmga krish</h1>
+                <span>Foydalanuvchi nomi va paroli kiriting</span>
+                <input type="text" name="username" placeholder="Foydalanuvchi nomi">
+                <input type="password" name="password" placeholder="Password">
+                <button class="login" type="submit">Xozir kirish</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Qaytib kelganingizdan xursandmiz!</h1>
+                    <p>Saytning barcha imkoniyatlaridan foydalanish uchun shaxsiy ma'lumotlaringizni kiriting</p>
+                    <button class="hidden" id="login">Tizimga kirish</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Salom do'stim!</h1>
+                    <p>Saytning barcha imkoniyatlaridan foydalanish uchun shaxsiy ma'lumotlaringiz bilan ro'yxatdan o'ting</p>
+                    <button class="hidden" id="register">Ro'yhattan o'tish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>
